@@ -1,753 +1,406 @@
-<!doctype html>
-<html lang="pt-BR" class="scroll-smooth" style="">
+<!DOCTYPE html>
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aqualand Resort | Mês do Cliente</title>
-    <!-- Google Fonts -->
+    <title>Aqualand Resort</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;family=Outfit:wght@400;500;600;700;800;900&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                turquoise: "#00B4D8",
-                teal: "#0077B6",
-                deep: "#03045E",
-                ocean: "#023E8A",
-                coral: "#FF6B35",
-                coralHover: "#E85D04",
-                gold: "#FFB703",
-                sand: "#FFF8F0",
-                azure: "#E0F7FA",
-              },
-            },
-            fontFamily: {
-              sans: ['"Plus Jakarta Sans"', "sans-serif"],
-              display: ['"Outfit"', "sans-serif"],
-            },
-            keyframes: {
-              floatSlow: {
-                "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-                "50%": { transform: "translateY(-12px) rotate(1.5deg)" },
-              },
-              floatReverse: {
-                "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-                "50%": { transform: "translateY(10px) rotate(-1.5deg)" },
-              },
-              pulseSubtle: {
-                "0%, 100%": { opacity: "0.9", transform: "scale(1)" },
-                "50%": { opacity: "1", transform: "scale(1.03)" },
-              },
-              waveSlow: {
-                "0%": { transform: "translateX(0)" },
-                "100%": { transform: "translateX(-50%)" },
-              },
-            },
-            animation: {
-              "float-slow": "floatSlow 7s ease-in-out infinite",
-              "float-reverse": "floatReverse 8s ease-in-out infinite",
-              "pulse-subtle": "pulseSubtle 3s ease-in-out infinite",
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        ::before,
-        ::after {
-          animation-delay: -1ms !important;
-          animation-duration: 1ms !important;
-          animation-iteration-count: 1 !important;
-          background-attachment: initial !important;
-          scroll-behavior: auto !important;
-          transition-duration: 0s !important;
-          transition-delay: 0s !important;
-        }
-      }
-      .text-shadow-hero {
-        text-shadow: 0 3px 18px rgba(2, 62, 138, 0.45);
-      }
-      .text-shadow-sm {
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-      .glass-pill {
-        background: rgba(255, 255, 255, 0.22);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-      }
-      .water-badge {
-        background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
-      }
-      .cta-shadow {
-        box-shadow:
-          0 10px 25px -4px rgba(255, 107, 53, 0.5),
-          0 6px 10px -4px rgba(255, 107, 53, 0.3);
-      }
-      .cta-shadow:hover {
-        box-shadow:
-          0 16px 32px -4px rgba(255, 107, 53, 0.65),
-          0 8px 16px -4px rgba(255, 107, 53, 0.4);
-      }
-    </style>
-  </head>
-  <body
-    class="bg-brand-sand text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-brand-turquoise selection:text-white"
-  >
-    <!-- TOP HEADER / BRAND BAR -->
 
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
     <!-- ========================================== -->
-    <!-- 1. PRIMEIRA DOBRA — HERO SECTION -->
+    <!-- 1. HERO                                    -->
     <!-- ========================================== -->
-<section class="sticky top-0 z-0 min-h-[92vh] md:min-h-screen flex items-center pt-28 pb-32 md:py-36 overflow-hidden">
-      <!-- Hero Background Image (Fotografia real do Aqualand Resort) -->
-      <div class="absolute inset-0 z-0">
+    <section class="hero">
+      <div class="hero__bg">
         <img
+          class="hero__bg-img"
           src="Img/g2.png"
           alt="Aqualand Resort Parque Aquático e Piscinas Tropicais"
-          class="w-full h-full object-cover object-center scale-105 animate-[pulseSubtle_14s_ease-in-out_infinite]"
         />
-        <!-- Overlays para contraste perfeito e transição fluida -->
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-deep/45 via-brand-ocean/20 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-brand-ocean/15"></div>
+        <div class="hero__overlay hero__overlay--side"></div>
+        <div class="hero__overlay hero__overlay--bottom"></div>
       </div>
 
-      <!-- Organic Floating Shapes (inspiração aquática) -->
-      <div
-        class="absolute top-20 right-10 w-96 h-96 rounded-full bg-brand-turquoise/20 blur-3xl pointer-events-none animate-float-slow"
-      ></div>
-      <div
-        class="absolute bottom-1/4 left-1/3 w-80 h-80 rounded-full bg-brand-gold/15 blur-2xl pointer-events-none animate-float-reverse"
-      ></div>
+      <div class="container hero__container">
+        <div class="hero__grid">
+          <!-- Coluna esquerda: copy + CTA -->
+          <div class="hero__content">
+            <span class="eyebrow eyebrow--gold">Réveillon Aqualand 2027</span>
 
-      <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <!-- Left Column: Copy Oficial & CTA Principal -->
-          <div class="lg:col-span-8 text-white space-y-6">
-            <!-- Campaign Ribbon Badge -->
-            <div
-              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-amber-200/90 text-xs sm:text-sm font-bold tracking-[0.1em] uppercase"
-            >
-            Mês do Cliente Aqualand
-            </div>
+            <h1 class="hero__title">
+            Seu 2027 começa no<br />
+              <span>Aqualand</span>
+            </h1>
 
-            <!-- Headline Oficial: Mês do Cliente Aqualand -->
-            <div class="space-y-2">
-              <h1
-                class="font-display font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight drop-shadow-md"
-              >
-                30 dias para comprar </br> <span class="text-cyan-100">até 3 meses para viajar!</span>
-              </h1>
-            </div>
+            <div class="pills">
+              <div class="pill">
 
-            <!-- Highlight Offers (Até 30% OFF & 5% no Pix) — pills sutis com glass discreto -->
-            <div class="pt-2 pb-4">
-              <div class="flex flex-wrap items-center gap-3">
-                <div
-                  class="flex items-center gap-2 px-4 py-1 rounded-full bg-white/8 backdrop-blur-sm border border-white/15"
-                >
-                  <span class="text-brand-coral font-display font-medium text-base sm:text-lg">+30%</span>
-                  <span class="text-white/75 text-xs sm:text-sm font-medium">OFF em desconto promocional</span>
-                </div>
-                <div
-                  class="flex items-center gap-2 px-4 py-1 rounded-full bg-white/8 backdrop-blur-sm border border-white/15"
-                >
-                  <span class="text-brand-coral font-display font-medium text-base sm:text-lg">+5%</span>
-                  <span class="text-white/75 text-xs sm:text-sm font-medium">Extra no Pix</span>
-                </div>
+                <span>Pacotes a partir de</span>
+                                <strong>3 diárias</strong>
               </div>
             </div>
 
-            <!-- Copy Obrigatória adicional do Hero -->
-            <div class="space-y-1 text-slate-100 font-medium text-sm sm:text-base max-w-2xl">
-              <p class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-brand-turquoise flex-shrink-0" fill="#CFFAFE" viewBox="0 0 20 20">
+            <ul class="checklist">
+              <li>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path
                     fill-rule="evenodd"
+                    clip-rule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span>5% no Pix para programar sua próxima ida ao Aqualand.</span>
-              </p>
-              <p class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-brand-gold flex-shrink-0" fill="#CFFAFE" viewBox="0 0 20 20">
-                  <path
-                    fill-rule="evenodd"
-                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span>Compre até 30/09 e escolha sua viagem para <strong>setembro, outubro ou novembro</strong>.</span>
-              </p>
-            </div>
-
-            <!-- Botão Principal de Conversão (CTA 1) -->
-            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <a
-                href="#reservar"
-                class="inline-flex items-center justify-center px-10 py-5 rounded-full font-display font-black text-lg md:text-xl tracking-wide uppercase bg-brand-coral hover:bg-brand-coralHover text-white transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 text-center group"
-              >
-                <span>QUERO APROVEITAR</span>
-                <svg
-                  class="w-6 h-6 ml-3 transform group-hover:translate-x-1.5 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Column: Glass Feature Card with Real Snapshot -->
-          <div class="lg:col-span-4 hidden lg:block">
-            <div class="relative group">
-
-              <div class="relative glass-card rounded-[2.2rem] p-5 shadow-2xl border border-white/50 text-slate-800">
-                <div class="relative rounded-2xl overflow-hidden mb-4 shadow-md aspect-[4/3]">
-                  <img
-                    src="Img/bg-banner.jpg"
-                    alt="Aqualand Resort Vista Aérea Pôr do Sol"
-                    class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out"
                   />
-                  <div
-                    class="absolute top-3 left-3 bg-brand-deep/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5"
-                  >
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                    Salinas, PA - Brasil
-                  </div>
-                </div>
-
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-teal">Resort Completo</span>
-                  </div>
-                  <h2 class="font-display font-extrabold text-xl text-brand-deep leading-snug">
-                    Experiências inesquecíveis
-                  </h2>
-                  <div class="flex items-center gap-4 text-xs text-slate-600 border-t border-slate-100 pt-3">
-                    <div>Parque Aquático Integrado</div>
-                    <div>Área de Lazer e Relax</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </section>
-
-    <!-- ========================================== -->
-    <!-- 2. BLOCO 2 — BENEFÍCIO DA PROMOÇÃO -->
-    <!-- ========================================== -->
-
-
-<section class="relative z-10 py-20 md:py-32 bg-brand-sand overflow-x-clip">
-
-  <!-- WAVE TRANSITION DIVIDER (No início da Seção 2, sobrepondo a Seção 1) -->
-  <div class="absolute -top-16 sm:-top-24 md:-top-32 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
-    <svg
-      class="relative block w-full h-16 sm:h-24 md:h-32 text-brand-sand fill-current"
-      viewBox="0 0 1200 120"
-      preserveAspectRatio="none"
-    >
-      <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z"></path>
-    </svg>
-  </div>
-      <div
-        class="absolute inset-0 pointer-events-none opacity-[0.06] z-0"
-        style="
-          background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='36' viewBox='0 0 120 36'%3E%3Cpath d='M0 18 C30 6 30 30 60 18 C90 6 90 30 120 18' fill='none' stroke='%230077b6' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E&quot;);
-          background-repeat: repeat;
-          background-size: 120px 36px;
-        "
-      ></div>
-      <!-- Floating subtle water wave graphics in background -->
-      <div class="absolute -top-0 right-0 w-96 h-96 rounded-full bg-cyan-200/30 blur-3xl pointer-events-none"></div>
-      <div class="absolute bottom-10 left-0 w-80 h-80 rounded-full bg-amber-400/35 blur-3xl pointer-events-none"></div>
-
-      <div class="relative max-w-7xl mx-auto px-6 md:px-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <!-- Left Column: Imagem Fotográfica Real da Família + Recortes Orgânicos e Ondas -->
-          <div class="lg:col-span-6 order-2 lg:order-1">
-            <div class="relative">
-              <!-- Main Photo Container with organic rounded corners -->
-              <div
-                class="relative max-w-md mx-auto rounded-[2.5rem] overflow-hidden"
-                data-carousel
-                data-carousel-autoplay="5000"
-              >
-                <div class="relative w-full aspect-[3/4] overflow-hidden">
-                  <!-- Trilho do carrossel -->
-                  <div class="flex h-full transition-transform duration-700 ease-out" data-carousel-track>
-                    <div class="w-full h-full flex-shrink-0">
-                      <img
-                        src="Img/img1.jpg"
-                        alt="Família feliz aproveitando as piscinas do Aqualand Resort"
-                        class="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div class="w-full h-full flex-shrink-0">
-                      <img
-                        src="Img/img2.jpg"
-                        alt="Escorregadores e piscinas do Aqualand Resort"
-                        class="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div class="w-full h-full flex-shrink-0">
-                      <img
-                        src="Img/img3.jpg"
-                        alt="Vista panorâmica do pôr do sol no Aqualand Resort"
-                        class="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div class="w-full h-full flex-shrink-0">
-                      <img
-                        src="Img/img4.jpg"
-                        alt="Vista panorâmica do pôr do sol no Aqualand Resort"
-                        class="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div class="w-full h-full flex-shrink-0">
-                      <img
-                        src="Img/img5.jpg"
-                        alt="Vista panorâmica do pôr do sol no Aqualand Resort"
-                        class="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div class="w-full h-full flex-shrink-0">
-                      <img
-                        src="Img/img6.jpg"
-                        alt="Vista panorâmica do pôr do sol no Aqualand Resort"
-                        class="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-
-                  <!-- Subtle inner light gradient -->
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-brand-deep/50 via-transparent to-transparent pointer-events-none"
-                  ></div>
-
-                  <!-- Setas de navegação -->
-                  <button
-                    type="button"
-                    data-carousel-prev
-                    aria-label="Imagem anterior"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/85 hover:bg-white text-brand-deep flex items-center justify-center shadow-md backdrop-blur-sm transition-colors"
-                  >
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2.5"
-                        d="M15 19l-7-7 7-7"
-                      ></path>
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    data-carousel-next
-                    aria-label="Próxima imagem"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/85 hover:bg-white text-brand-deep flex items-center justify-center shadow-md backdrop-blur-sm transition-colors"
-                  >
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
-
-                  <!-- Indicadores -->
-                  <div
-                    class="absolute top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5"
-                    data-carousel-dots
-                  >
-                    <button
-                      type="button"
-                      data-carousel-dot
-                      aria-label="Ir para imagem 1"
-                      class="h-1.5 w-5 rounded-full bg-white transition-all"
-                    ></button>
-                    <button
-                      type="button"
-                      data-carousel-dot
-                      aria-label="Ir para imagem 2"
-                      class="h-1.5 w-1.5 rounded-full bg-white/50 transition-all"
-                    ></button>
-                    <button
-                      type="button"
-                      data-carousel-dot
-                      aria-label="Ir para imagem 3"
-                      class="h-1.5 w-1.5 rounded-full bg-white/50 transition-all"
-                    ></button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-
-     
-          <!-- Right Column: Copy Oficial & Benefícios -->
-          <div class="lg:col-span-6 order-1 lg:order-2 space-y-8">
-            <div class="space-y-4">
-              <!-- Small Pre-header Tag -->
-              <div
-                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-brand-ocean font-bold text-xs uppercase tracking-wider"
-              >
-    
-                <span>Total liberdade para suas férias</span>
-              </div>
-
-              <!-- Título Oficial -->
-              <h2
-                class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-brand-deep tracking-tight leading-tight"
-              >
-                Você escolhe quando aproveitar!
-              </h2>
-
-              <!-- Texto Oficial -->
-              <p class="text-slate-700 text-base leading-relaxed font-normal">
-                Quer viajar ainda em setembro ou deixar a próxima ida para outubro ou novembro? Durante o Mês do
-                Cliente, você pode escolher a melhor data e garantir condições especiais para sua reserva.
-              </p>
-            </div>
-
-            <!-- Destaque Visual dos Benefícios Oficiais -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <!-- Benefício 1: Até 30% OFF -->
-              <div
-  class="relative bg-gradient-to-br from-[#2980B9] via-60% to-[#6DD5FA] rounded-3xl p-6 shadow-md transition-all duration-300 group hover:shadow-xl"
->
-  <div
-    class="w-12 h-12 rounded-2xl text-white flex items-center justify-start mb-4 group-hover:scale-110 transition-transform"
-  >
-    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2.5"
-        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-      ></path>
-    </svg>
-  </div>
-  <span class="text-xs font-bold uppercase tracking-wider text-white block mb-1"
-    >Desconto Especial</span
-  >
-  <p class="font-display font-bold text-2xl sm:text-3xl text-white">Até 30% OFF</p>
-  <p class="text-xs text-slate-700 mt-2">Válido para compras realizadas durante a campanha.</p>
-</div>
-
-              <!-- Benefício 2: 5% no Pix -->
-              <div
-                class="relative bg-gradient-to-br from-[#F77E33] via-70% to-[#E7D8B9] rounded-3xl p-6 shadow-md transition-all duration-300 group hover:shadow-xl"
-              >
-                <div
-                  class="w-12 h-12 rounded-2xl text-white flex items-center justify-start mb-4 group-hover:scale-110 transition-transform"
-                >
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2.5"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                  </svg>
-                </div>
-                <span class="text-xs font-bold uppercase tracking-wider text-white block mb-1"
-                  >Vantagem Extra</span
-                >
-                <p class="font-display font-bold text-2xl sm:text-3xl text-white">5% no Pix</p>
-                <p class="text-xs text-slate-700 mt-2">Condição acumulativa para pagamentos imediatos.</p>
-              </div>
-            </div>
-
-            <!-- Mês de Viagem Chips -->
-
-            <!-- Botão Oficial (CTA 2) -->
-            <div class="pt-2">
-              <a
-                href="#reservar"
-                class="inline-flex items-center justify-center px-9 py-4 rounded-full font-display font-black text-base sm:text-lg tracking-wide uppercase bg-brand-ocean hover:bg-brand-deep text-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-center group"
-              >
-                <span>FAZER MINHA RESERVA</span>
-                <svg
-                  class="w-5 h-5 ml-2.5 transform group-hover:translate-x-1.5 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2.5"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  ></path>
                 </svg>
-              </a>
-            </div>
+                <span>Passe a virada em Salinas com uma programação especial para celebrar em família.</span>
+              </li>
+            </ul>
+
+            <a href="#reservar" class="btn btn--coral btn--lg">
+              <span>Quero aproveitar</span>
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
           </div>
+
+          <!-- Coluna direita: card de vidro (só desktop) -->
+          <aside class="hero__aside">
+            <div class="feature-card">
+              <div class="feature-card__media">
+                <img
+                  src="Img/bg-banner.jpg"
+                  alt="Aqualand Resort Vista Aérea Pôr do Sol"
+                />
+                <span class="feature-card__tag">
+                  <i class="feature-card__dot"></i>
+                  Salinas, PA - Brasil
+                </span>
+              </div>
+
+              <div class="feature-card__body">
+                <span class="feature-card__label">Resort Completo</span>
+                <h2 class="feature-card__title">Experiências inesquecíveis</h2>
+                <div class="feature-card__meta">
+                  <span>Parque Aquático Integrado</span>
+                  <span>Área de Lazer e Relax</span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 3. BLOCO 3 — FECHAMENTO E CTA FINAL -->
+    <!-- 2. BENEFÍCIOS                              -->
     <!-- ========================================== -->
-    <section id="reservar" class="relative pt-24 pb-20 md:pt-36 md:pb-28 overflow-hidden text-white">
-      <!-- WAVE TRANSITION DIVIDER (Do Bloco 2 para o Bloco 3) -->
-      <div
-        class="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none transform rotate-180"
-      >
-        <svg
-          class="relative block w-full h-16 sm:h-24 md:h-32 text-brand-sand fill-current"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z"></path>
+    <section class="benefits">
+      <div class="wave wave--top" aria-hidden="true">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" />
         </svg>
       </div>
 
-      <!-- Fotografia marcante do Aqualand Resort como grande imagem de fundo -->
-      <div class="absolute inset-0 z-0">
-        <img
-          src="Img/bg-banner.jpg"
-          alt="Aqualand Resort Vista Panorâmica do Pôr do Sol e Lagoas"
-          class="w-full h-full object-cover object-center scale-100 filter brightness-90"
-        />
-        <!-- Sobreposições ricas em degradê azul marinho e turquesa para foco na conversão -->
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-deep/35 via-brand-ocean/30 to-brand-deep/95"></div>
-        <div
-          class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-turquoise/20 via-transparent to-brand-deep/60"
-        ></div>
+      <div class="benefits__pattern" aria-hidden="true"></div>
+
+      <div class="container">
+        <header class="benefits__header">
+          <div class="benefits__heading">
+            <span class="eyebrow eyebrow--ocean">Réveillon Aqualand 2027</span>
+            <h2 class="benefits__title">Uma noite especial para começar 2027</h2>
+          </div>
+          <p class="benefits__text">
+            Na noite de 31 de dezembro, o Aqualand prepara uma programação completa para celebrar a chegada do novo ano.
+          </p>
+        </header>
+
+        <div class="gallery">
+          <article class="gallery__card">
+            <img src="Img/img1.jpg" alt="Família feliz aproveitando as piscinas do Aqualand Resort" />
+            <h3 class="gallery__label">Ceia de Réveillon</h3>
+          </article>
+
+          <article class="gallery__card">
+            <img src="Img/img2.jpg" alt="Escorregadores e piscinas do Aqualand Resort" />
+            <h3 class="gallery__label">Open bar</h3>
+          </article>
+
+          <article class="gallery__card">
+            <img src="Img/img3.jpg" alt="Vista panorâmica do pôr do sol no Aqualand Resort" />
+            <h3 class="gallery__label">Música ao vivo</h3>
+          </article>
+
+          <article class="gallery__card">
+            <img src="Img/img4.jpg" alt="Aqualand Resort, imagem 4" />
+            <h3 class="gallery__label">Queima de fogos</h3>
+          </article>
+
+          <article class="gallery__card gallery__card--wide">
+            <img src="Img/img5.jpg" alt="Aqualand Resort, imagem 5" />
+            <h3 class="gallery__label">Ganhe 1 espumante por reserva</h3>
+          </article>
+        </div>
+
+        <div class="benefits__cta">
+          <a href="#reservar" class="btn btn--ocean">
+            <span>Fazer minha reserva</span>
+            <svg class="btn__arrow btn__arrow--sm" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. ESCOLHA SEU PACOTE                      -->
+    <!-- ========================================== -->
+    <section class="packages" id="pacotes">
+      <!-- Onda de transição: fecha a seção anterior (bege) -->
+      <div class="wave wave--flipped" aria-hidden="true">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" />
+        </svg>
       </div>
 
-      <!-- Subtle water ripple floating decorative circles -->
-      <div
-        class="absolute top-1/3 left-10 w-72 h-72 rounded-full bg-cyan-400/15 blur-3xl pointer-events-none animate-float-slow"
-      ></div>
-      <div
-        class="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-orange-400/15 blur-3xl pointer-events-none animate-float-reverse"
-      ></div>
+      <div class="container">
+        <header class="packages__header">
+          <span class="eyebrow eyebrow--ocean">Escolha seu pacote</span>
+          <h2 class="packages__title">Escolha como aproveitar seus dias no Aqualand.</h2>
+         
+        </header>
 
-      <div class="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center space-y-8">
-        <!-- Cartão Central: Selo, Título, Subtítulo, Telefone e CTA -->
-        <div class="max-w-2xl mx-auto">
-          <div class="bg-white rounded-[2.5rem] shadow-2xl p-8 md:p-12 text-center space-y-6">
-            <!-- Mini Floating Seal -->
-            <div
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-brand-ocean text-xs sm:text-sm font-bold"
-            >
-              <span>Últimos dias da campanha promocional</span>
+        <div class="packages__grid">
+          <!-- Meia Pensão -->
+          <article class="package">
+            <div class="package__media carousel" aria-roledescription="carousel" aria-label="Refeições da Meia Pensão">
+              <div class="carousel__track">
+                <figure class="carousel__slide">
+                  <img
+                    src="Img/cafe-da-manha.jpg"
+                    alt="Café da manhã servido no Aqualand Resort"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="carousel__caption">Café da manhã</figcaption>
+                </figure>
+                <figure class="carousel__slide">
+                  <img
+                    src="Img/jantar.jpg"
+                    alt="Jantar servido no Aqualand Resort"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="carousel__caption">Jantar</figcaption>
+                </figure>
+              </div>
+
+
+              <button type="button" class="carousel__btn carousel__btn--prev" aria-label="Imagem anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button type="button" class="carousel__btn carousel__btn--next" aria-label="Próxima imagem">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+              </button>
+
+              <!-- Indicadores criados pelo script.js -->
+              <div class="carousel__dots"></div>
             </div>
 
-            <!-- Chamada Oficial -->
-            <h2
-              class="font-display font-normal text-3xl sm:text-4xl md:text-5xl text-brand-deep tracking-tight leading-[1.15]"
-            >
-              Sua próxima ida ao Aqualand pode estar mais perto do que você imagina!
-            </h2>
+            <div class="package__body">
+              <div>
+                <h3 class="package__title">Meia Pensão</h3>
+                <p class="package__summary">Estadia mínima de 3 diárias*</p>
+              </div>
 
-            <!-- Texto Oficial -->
-            <p class="font-sans text-base sm:text-lg text-slate-600 font-medium">
-              Aproveite o Mês do Cliente e faça sua reserva até 30/09.
-            </p>
+              <ul class="meals">
+                <li class="meal meal--on">
+                  <span class="meal__icon">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" /></svg>
+                  </span>
+                  <span class="meal__name">Café da manhã</span>
+                  <span class="meal__status">Incluso</span>
+                </li>
+                <li class="meal meal--off">
+                  <span class="meal__icon">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" /></svg>
+                  </span>
+                  <span class="meal__name">Almoço</span>
+                  <span class="meal__status">Não incluso</span>
+                </li>
+                <li class="meal meal--on">
+                  <span class="meal__icon">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" /></svg>
+                  </span>
+                  <span class="meal__name">Jantar</span>
+                  <span class="meal__status">Incluso</span>
+                </li>
+              </ul>
 
-            <!-- Telefone Oficial -->
-            <div class="pt-2">
-              <p class="text-xs font-semibold text-slate-500 mb-1">Central de Atendimento</p>
-              <a
-                href="tel:08004590800"
-                class="inline-flex items-center gap-3 font-display font-black text-2xl sm:text-3xl text-brand-deep hover:text-brand-coral transition-colors"
-              >
-                <div
-                  class="w-10 h-10 rounded-full bg-brand-turquoise/20 text-brand-teal flex items-center justify-center"
-                >
-                  <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                    <path
-                      d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
-                    ></path>
-                  </svg>
-                </div>
-                <span>0800 459 0800</span>
-              </a>
-            </div>
-
-            <!-- Botão Oficial Final (CTA 3) -->
-            <div class="pt-2">
-              <a
-                href="#reservar"
-                class="w-full inline-flex items-center justify-center px-8 py-5 rounded-full font-display font-black text-xl tracking-wide uppercase bg-brand-coral hover:bg-brand-coralHover text-white transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 group"
-              >
-                <span>GARANTIR MINHA RESERVA</span>
-                <svg
-                  class="w-6 h-6 ml-3 transform group-hover:translate-x-1.5 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  ></path>
+              <a href="#reservar" class="btn btn--coral btn--fluid">
+                <span>Consultar valores e disponibilidade</span>
+                <svg class="btn__arrow btn__arrow--sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
             </div>
-          </div>
-        </div>
+          </article>
 
-        <!-- Trust signals / mini summary -->
-        <div
-          class="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-white text-xs sm:text-sm font-semibold"
-        >
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-            <span>Compre até 30/09</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-            <span>Viagens em Setembro, Outubro ou Novembro</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-            <span>Até 30% OFF + 5% no Pix</span>
-          </div>
-        </div>
-      </div>
+          <!-- Pensão Completa -->
+          <article class="package">
+            <div class="package__media carousel" aria-roledescription="carousel" aria-label="Refeições da Pensão Completa">
+              <div class="carousel__track">
+                <figure class="carousel__slide">
+                  <img
+                    src="Img/cafe-da-manha.jpg"
+                    alt="Café da manhã servido no Aqualand Resort"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="carousel__caption">Café da manhã</figcaption>
+                </figure>
+                <figure class="carousel__slide">
+                  <img
+                    src="Img/almoco.jpg"
+                    alt="Almoço servido no Aqualand Resort"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="carousel__caption">Almoço</figcaption>
+                </figure>
+                <figure class="carousel__slide">
+                  <img
+                    src="Img/jantar.jpg"
+                    alt="Jantar servido no Aqualand Resort"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="carousel__caption">Jantar</figcaption>
+                </figure>
+              </div>
 
-      <!-- Minimal Clean Footer Bar -->
-      <div
-        class="relative z-10 max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/15 text-center text-xs text-cyan-200/70"
-      >
-        <p>© 2024 Aqualand Resort &amp; Parque Aquático. Campanha Mês do Cliente. Todos os direitos reservados.</p>
+
+              <button type="button" class="carousel__btn carousel__btn--prev" aria-label="Imagem anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button type="button" class="carousel__btn carousel__btn--next" aria-label="Próxima imagem">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+              </button>
+
+              <!-- Indicadores criados pelo script.js -->
+              <div class="carousel__dots"></div>
+            </div>
+
+            <div class="package__body">
+              <div>
+                <h3 class="package__title">Pensão Completa</h3>
+                <p class="package__summary">Estadia mínima de 3 diárias*</p>
+              </div>
+
+              <ul class="meals">
+                <li class="meal meal--on">
+                  <span class="meal__icon">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" /></svg>
+                  </span>
+                  <span class="meal__name">Café da manhã</span>
+                  <span class="meal__status">Incluso</span>
+                </li>
+                <li class="meal meal--on">
+                  <span class="meal__icon">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" /></svg>
+                  </span>
+                  <span class="meal__name">Almoço</span>
+                  <span class="meal__status">Incluso</span>
+                </li>
+                <li class="meal meal--on">
+                  <span class="meal__icon">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" /></svg>
+                  </span>
+                  <span class="meal__name">Jantar</span>
+                  <span class="meal__status">Incluso</span>
+                </li>
+              </ul>
+
+              <a href="#reservar" class="btn btn--coral btn--fluid">
+                <span>Consultar valores e disponibilidade</span>
+                <svg class="btn__arrow btn__arrow--sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
-    <script>
-(function () {
-  function initCarousel(root) {
-    const track = root.querySelector('[data-carousel-track]');
-    const slides = track ? Array.from(track.children) : [];
-    const prev = root.querySelector('[data-carousel-prev]');
-    const next = root.querySelector('[data-carousel-next]');
-    const dots = Array.from(root.querySelectorAll('[data-carousel-dot]'));
-    const delay = parseInt(root.dataset.carouselAutoplay, 10) || 0;
 
-    if (!track || slides.length < 2) return;
+    <!-- ========================================== -->
+    <!-- 4. FECHAMENTO / CTA FINAL                  -->
+    <!-- ========================================== -->
+    <section id="reservar" class="closing">
+      <div class="wave wave--flipped" aria-hidden="true">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" />
+        </svg>
+      </div>
 
-    let index = 0;
-    let timer = null;
+      <div class="closing__bg">
+        <img
+          src="Img/bg-banner.jpg"
+          alt="Aqualand Resort Vista Panorâmica do Pôr do Sol e Lagoas"
+        />
+        <div class="closing__overlay closing__overlay--linear"></div>
+        <div class="closing__overlay closing__overlay--radial"></div>
+      </div>
 
-    function render() {
-      track.style.transform = 'translateX(-' + index * 100 + '%)';
-      dots.forEach(function (dot, i) {
-        const active = i === index;
-        dot.classList.toggle('w-5', active);
-        dot.classList.toggle('bg-white', active);
-        dot.classList.toggle('w-1.5', !active);
-        dot.classList.toggle('bg-white/50', !active);
-        dot.setAttribute('aria-current', active ? 'true' : 'false');
-      });
-    }
+      <div class="blob blob--closing-1"></div>
+      <div class="blob blob--closing-2"></div>
 
-    function goTo(i) {
-      index = (i + slides.length) % slides.length; // loop infinito
-      render();
-    }
+      <div class="container container--narrow closing__container">
+        <div class="cta-card">
+          <span class="cta-card__seal">Réveillon Aqualand 2027</span>
 
-    function startAutoplay() {
-      if (!delay) return;
-      stopAutoplay();
-      timer = setInterval(function () { goTo(index + 1); }, delay);
-    }
+          <h2 class="cta-card__title">
+             Seu 2027 começa no Aqualand
+          </h2>
 
-    function stopAutoplay() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
+          <p class="cta-card__text">Virada em família, dias de descanso e diversão para começar o novo ano em Salinas.</p>
 
-    // Setas (reinicia o autoplay depois do clique)
-    prev && prev.addEventListener('click', function () { goTo(index - 1); startAutoplay(); });
-    next && next.addEventListener('click', function () { goTo(index + 1); startAutoplay(); });
+          <div class="cta-card__phone">
+            <p>Central de Atendimento</p>
+            <a href="tel:08004590800">
+              <span class="cta-card__phone-icon">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+                  />
+                </svg>
+              </span>
+              <span>0800 459 0800</span>
+            </a>
+          </div>
 
-    // Dots
-    dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () { goTo(i); startAutoplay(); });
-    });
+          <a href="#reservar" class="btn btn--coral btn--block">
+            <span>Garantir minha reserva</span>
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
 
-    // Pausa ao passar o mouse
-    root.addEventListener('mouseenter', stopAutoplay);
-    root.addEventListener('mouseleave', startAutoplay);
+      </div>
 
-    // Swipe no mobile
-    let startX = 0;
-    root.addEventListener('touchstart', function (e) {
-      startX = e.touches[0].clientX;
-      stopAutoplay();
-    }, { passive: true });
-    root.addEventListener('touchend', function (e) {
-      const diff = e.changedTouches[0].clientX - startX;
-      if (Math.abs(diff) > 40) goTo(diff < 0 ? index + 1 : index - 1);
-      startAutoplay();
-    }, { passive: true });
+      <footer class="footer container">
+        <p>© 2024 Aqualand Resort &amp; Parque Aquático. Campanha Mês do Cliente. Todos os direitos reservados.</p>
+      </footer>
+    </section>
 
-    render();
-    startAutoplay();
-  }
-
-  function initAll() {
-    document.querySelectorAll('[data-carousel]').forEach(initCarousel);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAll);
-  } else {
-    initAll();
-  }
-})();
-</script>
+    <script src="script.js"></script>
   </body>
 </html>
