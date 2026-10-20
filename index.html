@@ -8,11 +8,62 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Atma:wght@700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" href="Img/brand/simbolo.png" />
 
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Ondas em três camadas, com curvas diferentes para criar movimento.
+         Usadas no topo da seção "Virada" (frente branca) e no topo da seção
+         seguinte (frente na cor do fundo dela), fechando a seção "Virada". */
+      .wave--holiday {
+        height: 4rem;
+      }
+
+      :is(.holiday, .benefits) .wave--holiday svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Camada superior: azul mais escuro e vibrante */
+      :is(.holiday, .benefits) .wave--holiday .wave__blue-dark {
+        fill: #2050b3 !important;
+        transform: translateY(-13px);
+        z-index: 1;
+      }
+
+      /* Camada intermédia: azul médio */
+      :is(.holiday, .benefits) .wave--holiday .wave__blue-mid {
+        fill: #3b96db !important;
+        transform: translateY(-3px);
+        z-index: 2;
+      }
+
+      /* Camada frontal: cor do fundo da seção que está logo abaixo da onda */
+      .holiday .wave--holiday .wave__white {
+        fill: #fff !important;
+        transform: translateY(9px);
+        z-index: 3;
+      }
+
+      .benefits .wave--holiday .wave__front {
+        fill: var(--mist) !important;
+        transform: translateY(9px);
+        z-index: 3;
+      }
+
+      @media (min-width: 640px) {
+        .wave--holiday { height: 6rem; }
+      }
+
+      @media (min-width: 768px) {
+        .wave--holiday { height: 8rem; }
+      }
+    </style>
   </head>
 
   <body>
@@ -30,34 +81,50 @@
         <div class="hero__overlay hero__overlay--bottom"></div>
       </div>
 
+      <!-- Logo: fixada à esquerda, perto do topo da página -->
+      <div class="hero__top">
+        <div class="container">
+          <img
+            class="hero__logo"
+            src="Img/logo-branco.png"
+            alt="Aqualand Resort"
+            width="720"
+            height="451"
+          />
+        </div>
+      </div>
+
       <div class="container hero__container">
         <div class="hero__grid">
-          <!-- Coluna esquerda: copy + CTA -->
+          <!-- Conteúdo centralizado (horizontal e vertical): copy + CTA -->
           <div class="hero__content">
-            <span class="eyebrow eyebrow--gold">Réveillon Aqualand 2027</span>
+            <span class="eyebrow eyebrow--gold">Réveillon Aqualand</span>
 
             <h1 class="hero__title">
-            Seu 2027 começa no<br />
-              <span>Aqualand</span>
+           <span> Comece 2027 de férias!</span>
+
             </h1>
 
             <div class="pills">
               <div class="pill">
-
-                <span>Pacotes a partir de</span>
-                                <strong>3 diárias</strong>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M7 2a1 1 0 012 0v2h6V2a1 1 0 112 0v2h2a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h2V2zm12 8H5v10h14V10zM5 6v2h14V6H5z"
+  />
+</svg>
+              <strong>3 diárias</strong>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+  <circle cx="10" cy="10" r="4" fill="currentColor" />
+</svg>
+              <span>30/12 a 02/01/27</span>
+              
               </div>
             </div>
 
             <ul class="checklist">
               <li>
-                <svg viewBox="0 0 20 20" aria-hidden="true">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  />
-                </svg>
                 <span>Passe a virada em Salinas com uma programação especial para celebrar em família.</span>
               </li>
             </ul>
@@ -69,42 +136,92 @@
               </svg>
             </a>
           </div>
-
-          <!-- Coluna direita: card de vidro (só desktop) -->
-          <aside class="hero__aside">
-            <div class="feature-card">
-              <div class="feature-card__media">
-                <img
-                  src="Img/bg-banner.jpg"
-                  alt="Aqualand Resort Vista Aérea Pôr do Sol"
-                />
-                <span class="feature-card__tag">
-                  <i class="feature-card__dot"></i>
-                  Salinas, PA - Brasil
-                </span>
-              </div>
-
-              <div class="feature-card__body">
-                <span class="feature-card__label">Resort Completo</span>
-                <h2 class="feature-card__title">Experiências inesquecíveis</h2>
-                <div class="feature-card__meta">
-                  <span>Parque Aquático Integrado</span>
-                  <span>Área de Lazer e Relax</span>
-                </div>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 2. BENEFÍCIOS                              -->
+    <!-- 2. VIRADA ESPECIAL                         -->
+    <!-- ========================================== -->
+    <section class="holiday" id="virada">
+      <div class="wave wave--top wave--holiday" aria-hidden="true">
+        <!-- Onda superior: azul escuro, com uma curva ampla e assimétrica -->
+        <svg class="wave__blue-dark" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,52 C125,5 205,8 330,43 C455,78 535,100 660,73 C810,40 900,82 1010,62 C1090,48 1145,18 1200,4 L1200,120 L0,120 Z" />
+        </svg>
+
+        <!-- Onda intermédia: azul médio, com movimento independente -->
+        <svg class="wave__blue-mid" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,67 C150,35 250,93 390,88 C525,83 565,48 700,69 C835,91 920,110 1050,82 C1115,68 1160,61 1200,58 L1200,120 L0,120 Z" />
+        </svg>
+
+        <!-- Onda frontal branca: mantém a transição com o fundo da seção -->
+        <svg class="wave__white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,82 C145,103 235,111 365,89 C505,65 560,76 690,91 C820,106 900,78 1015,84 C1090,88 1145,99 1200,105 L1200,120 L0,120 Z" />
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="holiday__grid">
+          <header class="holiday__intro">
+            <h2 class="holiday__title">
+              Uma virada especial.
+              <span>Férias para começar 2027!</span>
+            </h2>
+            <p class="holiday__text">
+              Celebre a chegada do novo ano no Aqualand Resort, com uma programação especial de Réveillon
+              e dias de descanso e diversão para toda a família.
+            </p>
+          </header>
+
+          <ul class="perks">
+          <li class="perk">
+            <span class="perk__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9a2 2 0 012-2h14a2 2 0 012 2v1a2 2 0 000 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1a2 2 0 000-4V9z" /><path d="M13 8v8" stroke-dasharray="2 2.5" /></svg></span>
+            <p class="perk__text">
+              Acesso ao Aqualand Park
+              <small class="perk__note">Conforme calendário de funcionamento</small>
+            </p>
+          </li>
+          <li class="perk">
+            <span class="perk__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><path d="M9 9.5h.01M15 9.5h.01" /></svg></span>
+            <p class="perk__text">
+              Recreação infantil
+            </p>
+          </li>
+          <li class="perk">
+            <span class="perk__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h14v4a5 5 0 01-5 5H8a5 5 0 01-5-5V9z" /><path d="M17 10h1a3 3 0 010 6h-1" /><path d="M7 3v2M11 3v2" /></svg></span>
+            <p class="perk__text">
+              Café da manhã incluso
+            </p>
+          </li>
+          <li class="perk">
+            <span class="perk__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg></span>
+            <p class="perk__text">
+              Até 2 crianças de até 11 anos OFF
+            </p>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. BENEFÍCIOS                              -->
     <!-- ========================================== -->
     <section class="benefits">
-      <div class="wave wave--top" aria-hidden="true">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" />
+      <!-- Onda em três camadas: fecha a seção "Uma virada especial" -->
+      <div class="wave wave--top wave--holiday" aria-hidden="true">
+        <svg class="wave__blue-dark" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,52 C125,5 205,8 330,43 C455,78 535,100 660,73 C810,40 900,82 1010,62 C1090,48 1145,18 1200,4 L1200,120 L0,120 Z" />
+        </svg>
+
+        <svg class="wave__blue-mid" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,67 C150,35 250,93 390,88 C525,83 565,48 700,69 C835,91 920,110 1050,82 C1115,68 1160,61 1200,58 L1200,120 L0,120 Z" />
+        </svg>
+
+        <!-- Frente na cor do fundo da seção Benefícios -->
+        <svg class="wave__front" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,82 C145,103 235,111 365,89 C505,65 560,76 690,91 C820,106 900,78 1015,84 C1090,88 1145,99 1200,105 L1200,120 L0,120 Z" />
         </svg>
       </div>
 
@@ -113,11 +230,11 @@
       <div class="container">
         <header class="benefits__header">
           <div class="benefits__heading">
-            <span class="eyebrow eyebrow--ocean">Réveillon Aqualand 2027</span>
+            <span class="eyebrow eyebrow--ocean">Réveillon Aqualand</span>
             <h2 class="benefits__title">Uma noite especial para começar 2027</h2>
           </div>
           <p class="benefits__text">
-            Na noite de 31 de dezembro, o Aqualand prepara uma programação completa para celebrar a chegada do novo ano.
+           Aproveite nossa programação <strong>exclusiva para o dia 31 de dezembro</strong> e celebre a chegada do Ano Novo no Aqualand!
           </p>
         </header>
 
@@ -128,7 +245,7 @@
           </article>
 
           <article class="gallery__card">
-            <img src="Img/img2.jpg" alt="Escorregadores e piscinas do Aqualand Resort" />
+            <img src="Img/img2.png" alt="Escorregadores e piscinas do Aqualand Resort" />
             <h3 class="gallery__label">Open bar</h3>
           </article>
 
@@ -138,12 +255,12 @@
           </article>
 
           <article class="gallery__card">
-            <img src="Img/img4.jpg" alt="Aqualand Resort, imagem 4" />
+            <img src="Img/img4.png" alt="Aqualand Resort, imagem 4" />
             <h3 class="gallery__label">Queima de fogos</h3>
           </article>
 
           <article class="gallery__card gallery__card--wide">
-            <img src="Img/img5.jpg" alt="Aqualand Resort, imagem 5" />
+            <img src="Img/img5.png" alt="Aqualand Resort, imagem 5" />
             <h3 class="gallery__label">Ganhe 1 espumante por reserva</h3>
           </article>
         </div>
@@ -160,7 +277,7 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- 3. ESCOLHA SEU PACOTE                      -->
+    <!-- 4. ESCOLHA SEU PACOTE                      -->
     <!-- ========================================== -->
     <section class="packages" id="pacotes">
       <!-- Onda de transição: fecha a seção anterior (bege) -->
@@ -184,7 +301,7 @@
               <div class="carousel__track">
                 <figure class="carousel__slide">
                   <img
-                    src="Img/cafe-da-manha.jpg"
+                    src="Img/cafe-da-manha.png"
                     alt="Café da manhã servido no Aqualand Resort"
                     loading="lazy"
                     decoding="async"
@@ -193,7 +310,7 @@
                 </figure>
                 <figure class="carousel__slide">
                   <img
-                    src="Img/jantar.jpg"
+                    src="Img/jantar.png"
                     alt="Jantar servido no Aqualand Resort"
                     loading="lazy"
                     decoding="async"
@@ -259,7 +376,7 @@
               <div class="carousel__track">
                 <figure class="carousel__slide">
                   <img
-                    src="Img/cafe-da-manha.jpg"
+                    src="Img/cafe-da-manha.png"
                     alt="Café da manhã servido no Aqualand Resort"
                     loading="lazy"
                     decoding="async"
@@ -268,7 +385,7 @@
                 </figure>
                 <figure class="carousel__slide">
                   <img
-                    src="Img/almoco.jpg"
+                    src="Img/almoco.png"
                     alt="Almoço servido no Aqualand Resort"
                     loading="lazy"
                     decoding="async"
@@ -277,7 +394,7 @@
                 </figure>
                 <figure class="carousel__slide">
                   <img
-                    src="Img/jantar.jpg"
+                    src="Img/jantar.png"
                     alt="Jantar servido no Aqualand Resort"
                     loading="lazy"
                     decoding="async"
@@ -341,7 +458,7 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- 4. FECHAMENTO / CTA FINAL                  -->
+    <!-- 5. FECHAMENTO / CTA FINAL                  -->
     <!-- ========================================== -->
     <section id="reservar" class="closing">
       <div class="wave wave--flipped" aria-hidden="true">
@@ -364,10 +481,10 @@
 
       <div class="container container--narrow closing__container">
         <div class="cta-card">
-          <span class="cta-card__seal">Réveillon Aqualand 2027</span>
+          <span class="cta-card__seal">Réveillon Aqualand</span>
 
           <h2 class="cta-card__title">
-             Seu 2027 começa no Aqualand
+        Comece 2027 de férias!
           </h2>
 
           <p class="cta-card__text">Virada em família, dias de descanso e diversão para começar o novo ano em Salinas.</p>
@@ -397,6 +514,14 @@
       </div>
 
       <footer class="footer container">
+        <img
+          class="footer__logo"
+          src="Img/brand/logo-branco.png"
+          alt="Aqualand Resort"
+          width="720"
+          height="451"
+          loading="lazy"
+        />
         <p>© 2024 Aqualand Resort &amp; Parque Aquático. Campanha Mês do Cliente. Todos os direitos reservados.</p>
       </footer>
     </section>

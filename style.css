@@ -1,29 +1,42 @@
 /* ==========================================================
-   Aqualand Resort | Réveillon 2027
+   Aqualand Resort | Réveillon 2027 — identidade da marca
    ========================================================== */
 
 /* ---------- Variáveis ---------- */
+/* Acakadut: fonte primária da marca (títulos).
+   Coloque o arquivo em Fonts/Acakadut.woff2 (ou .ttf). Sem o arquivo,
+   o navegador usa a Atma Bold como reserva. */
+@font-face {
+  font-family: "Acakadut";
+  src: local("Acakadut"), local("Acakadut Regular"),
+    url("Fonts/aAcakadut.woff2") format("woff2"),
+    url("Fonts/aAcakadut.ttf") format("truetype");
+  font-weight: 100 900; /* evita negrito sintético */
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* Azuis — cor principal: #0C2340 */
-  --navy-950: #071326;
-  --navy-900: #0a1b33;
-  --navy-800: #0c2340;
-  --navy-700: #143a66;
-  --navy-600: #1f4c86;
-  --navy-500: #3f6ea5;
-  --navy-300: #8fa9c8;
-  --navy-100: #dce6f2;
-  --mist: #f3f6fb;
+  /* Azuis da marca (manual: #0E2A7A, #2050B3, #3B96DB, #88C8EF) */
+  --navy-950: #050f33;
+  --navy-900: #081a4f;
+  --navy-800: #0e2a7a;
+  --navy-700: #173f9a;
+  --navy-600: #2050b3;
+  --navy-500: #3b96db;
+  --navy-300: #88c8ef;
+  --navy-100: #dcecf9;
+  --mist: #f1f7fd;
 
-  /* Dourado: apenas em detalhes pontuais (filetes, ícones, bordas finas) */
-  --gold: #d4af37;
-  --gold-line: rgba(212, 175, 55, 0.5);
+  /* Detalhe pontual: amarelo da paleta secundária (lembra o tridente dourado) */
+  --gold: #f7cd46;
+  --gold-line: rgba(247, 205, 70, 0.55);
 
-  /* Degradê dos botões (azul sóbrio, sem saturação) */
-  --btn-gradient: linear-gradient(120deg, #2a5a94 0%, #17406f 48%, #0c2340 100%);
+  /* Degradê dos botões */
+  --btn-gradient: linear-gradient(120deg, #2a6fc2 0%, #1c47a8 48%, #0e2a7a 100%);
 
-  --font-body: "Plus Jakarta Sans", sans-serif;
-  --font-display: "Outfit", sans-serif;
+  --font-body: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Acakadut", "Atma", cursive;
 }
 
 /* ---------- Reset ---------- */
@@ -130,7 +143,8 @@ h2 {
 }
 
 /* Título centralizado: filete dos dois lados */
-.packages__header .eyebrow::after {
+.packages__header .eyebrow::after,
+.hero__content .eyebrow::after {
   content: "";
   flex-shrink: 0;
   width: 1.5rem;
@@ -140,12 +154,12 @@ h2 {
 
 .eyebrow--gold {
   color: var(--gold);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
 }
 
 .eyebrow--ocean {
   color: var(--navy-700);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.14em;
 }
 
 @media (min-width: 640px) {
@@ -207,16 +221,16 @@ h2 {
   text-align: center;
   text-transform: uppercase;
   color: #fff;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   border: 1px solid var(--gold-line);
   border-radius: 9999px;
   background-color: var(--navy-800);
   background-image: var(--btn-gradient);
   background-size: 180% 100%;
   background-position: 0% 50%;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 8px 18px -10px rgba(7, 19, 38, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 8px 18px -10px rgba(5, 15, 51, 0.55);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease,
     background-position 0.6s ease;
 }
@@ -225,7 +239,7 @@ h2 {
   transform: translateY(-0.25rem);
   background-position: 100% 50%;
   border-color: var(--gold);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 16px 28px -12px rgba(7, 19, 38, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 16px 28px -12px rgba(5, 15, 51, 0.6);
 }
 
 .btn:active {
@@ -326,20 +340,21 @@ h2 {
 }
 
 .hero__overlay--side {
-  background: linear-gradient(
-    to right,
-    rgba(12, 35, 64, 0.45),
-    rgba(20, 58, 102, 0.2),
-    transparent
+  /* Conteúdo centralizado: escurece o centro para manter a leitura */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(7, 26, 77, 0.5),
+    rgba(23, 63, 154, 0.22) 60%,
+    transparent 100%
   );
 }
 
 .hero__overlay--bottom {
   background: linear-gradient(
     to top,
-    rgba(12, 35, 64, 0.8),
+    rgba(7, 26, 77, 0.8),
     transparent,
-    rgba(20, 58, 102, 0.15)
+    rgba(23, 63, 154, 0.15)
   );
 }
 
@@ -348,7 +363,7 @@ h2 {
   right: 2.5rem;
   width: 24rem;
   height: 24rem;
-  background: rgba(63, 110, 165, 0.2);
+  background: rgba(59, 150, 219, 0.2);
   filter: blur(64px);
   animation: floatSlow 7s ease-in-out infinite;
 }
@@ -358,7 +373,7 @@ h2 {
   left: 33.333%;
   width: 20rem;
   height: 20rem;
-  background: rgba(212, 175, 55, 0.08);
+  background: rgba(247, 205, 70, 0.08);
   filter: blur(40px);
   animation: floatReverse 8s ease-in-out infinite;
 }
@@ -367,33 +382,62 @@ h2 {
   z-index: 10;
 }
 
+/* Logo à esquerda, colada perto do topo da página */
+.hero__top {
+  position: absolute;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
 .hero__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .hero__content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 1.5rem;
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
   color: #fff;
 }
 
 .hero__title {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 1.875rem;
-  line-height: 1.25;
-  letter-spacing: -0.025em;
-  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
   filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
 }
 
+/* Hierarquia do manual: palavra-chave maior que as de ligação */
+/* Hierarquia do manual: frase de apoio pequena + palavra-chave em Acakadut */
 .hero__title span {
-  color: var(--navy-100);
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 5.25rem !important;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+  color: #fff;
+}
+
+.hero__logo {
+  display: block;
+  width: 7.5rem;
+  height: auto;
+  filter: drop-shadow(0 4px 14px rgba(5, 15, 51, 0.45));
 }
 
 .hero__aside {
@@ -405,6 +449,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   padding-block: 0.5rem 1rem;
 }
@@ -416,20 +461,20 @@ h2 {
   padding: 0.25rem 1rem;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(247, 205, 70, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
 
 .pill strong {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 1.25rem;
   color: var(--gold);
 }
 
 .pill span {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.75);
 }
@@ -448,14 +493,16 @@ h2 {
 .checklist li {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  text-align: center;
 }
 
-.checklist svg {
+.pill svg {
   flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
-  fill: var(--gold);
+  fill: #fff;
 }
 
 /* Card de vidro */
@@ -464,7 +511,7 @@ h2 {
   padding: 1.25rem;
   border-radius: 2.2rem;
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(212, 175, 55, 0.45);
+  border: 1px solid rgba(247, 205, 70, 0.45);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -500,7 +547,7 @@ h2 {
   gap: 0.375rem;
   padding: 0.375rem 0.75rem;
   border-radius: 9999px;
-  background: rgba(12, 35, 64, 0.8);
+  background: rgba(7, 26, 77, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   color: #fff;
@@ -531,9 +578,11 @@ h2 {
 
 .feature-card__title {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.25rem;
-  line-height: 1.375;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--navy-800);
 }
 
@@ -549,16 +598,28 @@ h2 {
 
 @media (min-width: 640px) {
   .hero__title {
-    font-size: 3rem;
+    font-size: 1.125rem;
+  }
+  .hero__title span {
+    font-size: 3.25rem;
   }
   .pill strong {
     font-size: 1.125rem;
   }
   .pill span {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
   .checklist {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__top {
+    top: 1.5rem;
+  }
+  .hero__logo {
+    width: 9rem;
   }
 }
 
@@ -568,26 +629,174 @@ h2 {
     padding-block: 9rem;
   }
   .hero__title {
-    font-size: 3.75rem;
+    font-size: 1.25rem;
+  }
+  .hero__title span {
+    font-size: 4rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .hero__grid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 3rem;
-  }
-  .hero__content {
-    grid-column: span 8;
-  }
-  .hero__aside {
-    display: block;
-    grid-column: span 4;
+  .hero__title span {
+    font-size: 4.5rem;
   }
 }
 
 /* ==========================================================
-   2. BENEFÍCIOS
+   2. VIRADA ESPECIAL
+   ========================================================== */
+.holiday {
+  position: relative;
+  z-index: 10;
+  /* base maior: libera espaço para a onda da seção seguinte */
+  padding: 5rem 0 7rem;
+  background: #fff;
+  height: 90vh;
+}
+
+/* A onda que sobe sobre o hero acompanha o fundo desta seção */
+.holiday .wave svg {
+  fill: #fff;
+}
+
+.holiday__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 66rem;
+  margin-inline: auto;
+}
+
+/* Filete dourado acima do título */
+.holiday__intro::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  margin-bottom: 1.25rem;
+  background: var(--gold);
+}
+
+.holiday__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--navy-800);
+}
+
+.holiday__title span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--navy-600);
+}
+
+.holiday__text {
+  max-width: 34rem;
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* Itens inclusos */
+.perks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(23, 63, 154, 0.14);
+  border-radius: 1.25rem;
+  background: var(--mist);
+  transition: border-color 0.3s ease;
+}
+
+.perk:hover {
+  border-color: var(--gold-line);
+}
+
+.perk__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--gold-line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy-800);
+}
+
+.perk__icon svg {
+  width: 1.375rem;
+  height: 1.375rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.perk__text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--navy-800);
+}
+
+.perk__note {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #64748b;
+}
+
+@media (min-width: 640px) {
+  .holiday {
+    padding: 6rem 0 9rem;
+  }
+  .holiday__title {
+    font-size: 2.75rem;
+  }
+  .perks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .perk {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .holiday {
+    padding: 7rem 0 11rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .holiday__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 4rem;
+  }
+  .holiday__title {
+    font-size: 3.5rem;
+  }
+}
+
+/* ==========================================================
+   3. BENEFÍCIOS
    ========================================================== */
 .benefits {
   position: relative;
@@ -601,11 +810,12 @@ h2 {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.06;
+  opacity: 0.07;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='36' viewBox='0 0 120 36'%3E%3Cpath d='M0 18 C30 6 30 30 60 18 C90 6 90 30 120 18' fill='none' stroke='%231f4c86' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 120px 36px;
+  background-image: url("Img/brand/tridente.png"), url("Img/brand/tridente.png");
+  background-repeat: no-repeat;
+  background-position: right -3rem top 4rem, left -5rem bottom 2rem;
+  background-size: 22rem auto, 14rem auto;
 }
 
 .blob--benefits-1 {
@@ -613,7 +823,7 @@ h2 {
   right: 0;
   width: 24rem;
   height: 24rem;
-  background: rgba(143, 169, 200, 0.3);
+  background: rgba(136, 200, 239, 0.3);
   filter: blur(64px);
 }
 
@@ -622,7 +832,7 @@ h2 {
   left: 0;
   width: 20rem;
   height: 20rem;
-  background: rgba(212, 175, 55, 0.08);
+  background: rgba(247, 205, 70, 0.08);
   filter: blur(64px);
 }
 
@@ -653,9 +863,10 @@ h2 {
 .benefits__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 1.25;
-  letter-spacing: -0.025em;
+  font-size: 2.25rem;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   color: var(--navy-800);
 }
 
@@ -705,7 +916,7 @@ h2 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to top, rgba(12, 35, 64, 0.8), rgba(12, 35, 64, 0) 60%);
+  background: linear-gradient(to top, rgba(7, 26, 77, 0.8), rgba(7, 26, 77, 0) 60%);
 }
 
 /* Moldura dourada fina ao passar o mouse */
@@ -730,10 +941,12 @@ h2 {
   bottom: 1rem;
   right: 1rem;
   z-index: 1;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.25;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: #fff;
 }
 
@@ -755,7 +968,7 @@ h2 {
 
 @media (min-width: 640px) {
   .benefits__title {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
   }
   .benefits__text {
     font-size: 1rem;
@@ -768,10 +981,10 @@ h2 {
     grid-column: span 2;
   }
   .gallery__label {
-    font-size: 1.125rem;
+    font-size: 0.875rem;
   }
   .gallery__card--wide .gallery__label {
-    font-size: 1.375rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -788,12 +1001,12 @@ h2 {
 
 @media (min-width: 1024px) {
   .benefits__title {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }
 
 /* ==========================================================
-   3. ESCOLHA SEU PACOTE
+   4. ESCOLHA SEU PACOTE
    ========================================================== */
 .packages {
   position: relative;
@@ -814,10 +1027,11 @@ h2 {
 
 .packages__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.75rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: 2.125rem;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   color: var(--navy-800);
 }
 
@@ -827,7 +1041,7 @@ h2 {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(63, 110, 165, 0.35);
+  border: 1px solid rgba(59, 150, 219, 0.35);
   border-radius: 9999px;
   background: var(--navy-100);
   font-size: 0.875rem;
@@ -854,16 +1068,16 @@ h2 {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(20, 58, 102, 0.14);
+  border: 1px solid rgba(23, 63, 154, 0.14);
   border-radius: 1.5rem;
   background: #fff;
-  box-shadow: 0 1px 2px rgba(12, 35, 64, 0.04);
+  box-shadow: 0 1px 2px rgba(7, 26, 77, 0.04);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .package:hover {
   border-color: var(--gold-line);
-  box-shadow: 0 10px 28px -14px rgba(12, 35, 64, 0.2);
+  box-shadow: 0 10px 28px -14px rgba(7, 26, 77, 0.2);
 }
 
 .package__media {
@@ -922,7 +1136,7 @@ h2 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to top, rgba(12, 35, 64, 0.75), rgba(12, 35, 64, 0) 55%);
+  background: linear-gradient(to top, rgba(7, 26, 77, 0.75), rgba(7, 26, 77, 0) 55%);
 }
 
 .carousel__caption {
@@ -930,12 +1144,23 @@ h2 {
   left: 1.25rem;
   bottom: 1.125rem;
   z-index: 2;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 0.8125rem;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: #fff;
+}
+
+/* Filete acima da legenda, igual ao dos cards de foto */
+.carousel__caption::before {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  margin-bottom: 0.5rem;
+  background: var(--gold);
 }
 
 .carousel__btn {
@@ -1011,10 +1236,11 @@ h2 {
 
 .package__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.75rem;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--navy-800);
 }
 
@@ -1027,7 +1253,7 @@ h2 {
 /* Lista de refeições (mesmas 3 linhas nos dois cards, para comparar) */
 .meals {
   flex: 1;
-  border-top: 1px solid rgba(20, 58, 102, 0.08);
+  border-top: 1px solid rgba(23, 63, 154, 0.08);
 }
 
 .meal {
@@ -1035,7 +1261,7 @@ h2 {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(20, 58, 102, 0.08);
+  border-bottom: 1px solid rgba(23, 63, 154, 0.08);
   font-size: 0.9375rem;
 }
 
@@ -1070,7 +1296,7 @@ h2 {
 
 .meal--on .meal__icon {
   border: 1px solid var(--gold-line);
-  background: rgba(12, 35, 64, 0.05);
+  background: rgba(7, 26, 77, 0.05);
   color: var(--navy-800);
 }
 
@@ -1106,7 +1332,7 @@ h2 {
     padding-top: 8rem;
   }
   .packages__title {
-    font-size: 2.25rem;
+    font-size: 3.25rem;
   }
 }
 
@@ -1127,7 +1353,7 @@ h2 {
 }
 
 /* ==========================================================
-   4. FECHAMENTO
+   5. FECHAMENTO
    ========================================================== */
 .closing {
   position: relative;
@@ -1158,19 +1384,29 @@ h2 {
 .closing__overlay--linear {
   background: linear-gradient(
     to bottom,
-    rgba(12, 35, 64, 0.35),
-    rgba(20, 58, 102, 0.3),
-    rgba(12, 35, 64, 0.95)
+    rgba(7, 26, 77, 0.35),
+    rgba(23, 63, 154, 0.3),
+    rgba(7, 26, 77, 0.95)
   );
 }
 
 .closing__overlay--radial {
   background: radial-gradient(
     ellipse at center,
-    rgba(63, 110, 165, 0.2),
+    rgba(59, 150, 219, 0.2),
     transparent,
-    rgba(12, 35, 64, 0.6)
+    rgba(7, 26, 77, 0.6)
   );
+}
+
+/* Tridente da marca como marca d'água */
+.closing__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background: url("Img/brand/tridente-branco.png") no-repeat right -4rem bottom -3rem / 26rem auto;
 }
 
 .closing .wave svg {
@@ -1182,7 +1418,7 @@ h2 {
   left: 2.5rem;
   width: 18rem;
   height: 18rem;
-  background: rgba(63, 110, 165, 0.15);
+  background: rgba(59, 150, 219, 0.15);
   filter: blur(64px);
   animation: floatSlow 7s ease-in-out infinite;
 }
@@ -1192,7 +1428,7 @@ h2 {
   right: 2.5rem;
   width: 24rem;
   height: 24rem;
-  background: rgba(212, 175, 55, 0.08);
+  background: rgba(247, 205, 70, 0.08);
   filter: blur(64px);
   animation: floatReverse 8s ease-in-out infinite;
 }
@@ -1216,7 +1452,7 @@ h2 {
   padding: 2rem;
   border-radius: 2.5rem;
   background: #fff;
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(247, 205, 70, 0.3);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
@@ -1233,15 +1469,16 @@ h2 {
 
 .cta-card__title {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.875rem;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  font-size: 2.125rem;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   color: var(--navy-800);
 }
 
 .cta-card__text {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
   color: #475569;
 }
@@ -1262,7 +1499,7 @@ h2 {
   align-items: center;
   gap: 0.75rem;
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1.5rem;
   color: var(--navy-800);
   transition: color 0.2s ease;
@@ -1279,7 +1516,7 @@ h2 {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: rgba(63, 110, 165, 0.2);
+  background: rgba(59, 150, 219, 0.2);
   color: var(--navy-600);
   border: 1px solid var(--gold-line);
 }
@@ -1319,14 +1556,21 @@ h2 {
 }
 
 /* Rodapé */
+.footer__logo {
+  width: 6.5rem;
+  height: auto;
+  margin: 0 auto 1.25rem;
+  opacity: 0.95;
+}
+
 .footer {
   z-index: 10;
   margin-top: 4rem;
   padding-block: 2rem 0;
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-top: 1px solid rgba(247, 205, 70, 0.3);
   text-align: center;
   font-size: 0.75rem;
-  color: rgba(143, 169, 200, 0.7);
+  color: rgba(136, 200, 239, 0.7);
 }
 
 @media (min-width: 640px) {
@@ -1334,10 +1578,10 @@ h2 {
     font-size: 0.875rem;
   }
   .cta-card__title {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
   }
   .cta-card__text {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
   .cta-card__phone a {
     font-size: 1.875rem;
@@ -1356,7 +1600,7 @@ h2 {
     padding: 3rem;
   }
   .cta-card__title {
-    font-size: 3rem;
+    font-size: 3.25rem;
   }
 }
 
@@ -1406,5 +1650,45 @@ h2 {
     scroll-behavior: auto !important;
     transition-duration: 0s !important;
     transition-delay: 0s !important;
+  }
+}
+
+/* ==========================================================
+   Onda dupla — transição do Hero para a seção Virada Especial
+   ========================================================== */
+
+.wave--holiday {
+  height: 8rem;
+  overflow: hidden;
+}
+
+.wave--holiday svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Camada azul ao fundo */
+.wave--holiday .wave__blue {
+  fill: #88c8ef;
+  transform: translateY(-12px);
+}
+
+/* Camada branca à frente */
+.wave--holiday .wave__white {
+  fill: #fff;
+  transform: translateY(10px);
+}
+
+@media (max-width: 639px) {
+  .wave--holiday {
+    height: 4rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .wave--holiday {
+    height: 6rem;
   }
 }
