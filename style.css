@@ -651,7 +651,6 @@ h2 {
   /* base maior: libera espaço para a onda da seção seguinte */
   padding: 5rem 0 7rem;
   background: #fff;
-  height: 90vh;
 }
 
 /* A onda que sobe sobre o hero acompanha o fundo desta seção */
@@ -765,7 +764,6 @@ h2 {
 @media (min-width: 640px) {
   .holiday {
     padding: 6rem 0 9rem;
-   height: 110vh;
   }
   .holiday__title {
     font-size: 2.75rem;
