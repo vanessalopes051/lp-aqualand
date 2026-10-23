@@ -72,11 +72,19 @@
     <!-- ========================================== -->
     <section class="hero">
       <div class="hero__bg">
-        <img
+        <video
           class="hero__bg-img"
-          src="Img/g2.png"
-          alt="Aqualand Resort Parque Aquático e Piscinas Tropicais"
-        />
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="Img/g2.png"
+          aria-hidden="true"
+        >
+          <source src="Img/hero.webm" type="video/webm" />
+          <source src="Img/hero.mp4" type="video/mp4" />
+        </video>
         <div class="hero__overlay hero__overlay--side"></div>
         <div class="hero__overlay hero__overlay--bottom"></div>
       </div>
@@ -98,12 +106,21 @@
         <div class="hero__grid">
           <!-- Conteúdo centralizado (horizontal e vertical): copy + CTA -->
           <div class="hero__content">
-            <span class="eyebrow eyebrow--gold">Réveillon Aqualand</span>
-
+            <!-- Título principal: selo dourado "Réveillon Aqualand" -->
             <h1 class="hero__title">
-           <span> Comece 2027 de férias!</span>
-
+              <picture>
+                <source srcset="Img/SELO_DOURADO.webp" type="image/webp" />
+                <img
+                  class="hero__seal"
+                  src="Img/SELO_DOURADO.png"
+                  alt="Réveillon Aqualand"
+                  width="1400"
+                  height="517"
+                />
+              </picture>
             </h1>
+
+            <p class="hero__tagline">Comece 2027 de férias!</p>
 
             <div class="pills">
               <div class="pill">
